@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lottery</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/premium-vector/celebration-background-template-with-confetti-gold-ribbons-luxury-greeting-rich-card_29865-1126.jpg?w=1060');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .card-container {
+            margin-top: 100px;
+        }
+        .card-body {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        }
+        .lottery-btn {
+            background-color: darkviolet;
+            color: #fff;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .lottery-btn:hover {
+            background-color: darkorchid;
+        }
+        /* Custom styling for the unordered list */
+        #demo ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        #demo ul li {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4 card-container">
+                <div class="card card-body text-center">
+                    <h1 class="mb-3">Lottery Drawer</h1>
+                    
+                    <p id="demo" class="card-body"></p>
+                    <button type="button" data-target="#popup" data-toggle="modal" onclick="lottaryDraw()" class="lottery-btn mt-3">Draw Lottery</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="popup">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Winner</h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" id="up"></div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" data-dismiss="modal" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var arr=[192354,203381,394563,408934,203040,609030,889977];
+        function lottaryDraw(){
+            var element=arr[Math.floor(Math.random()*arr.length)];
+            console.log(element);
+            document.getElementById("demo").innerHTML='<ul><li>'+element+'</li></ul>';
+            document.getElementById("demo").style.color="red";
+            document.getElementById("up").innerHTML=element;
+        }
+    </script>
+</body>
+</html>
